@@ -92,9 +92,6 @@ def apply_password_mutation(word_list: list) -> list:
 	"""Convert word list to common passwords"""
 	numerics = [x for x in range(10)]
 	from string import punctuation
-	# Uppercase the first character
-	# Add numbers at the end
-	# Add a random punctuation after the number
 	words = [word[0] for word in word_list] # Convert tuple into list of words
 	passwd_list = []
 	for word in words:
@@ -126,15 +123,11 @@ def main(url, length, output, passwd):
 	if output != '':
 		output_file = open(output, 'w')
 		try:
-			# for words in top_words:
-			# 	output_file.write(words[0] + '\n')
 			output_file.write(table)
 			output_file.write('\n')
 		finally:
 			output_file.close()
 	else:
-		# for words in top_words:
-		# 	print(words[0])
 		print(table)
 	if passwd:
 		passwd_list = apply_password_mutation(top_words)
@@ -143,8 +136,6 @@ def main(url, length, output, passwd):
 			try:
 				output_file = open(output, 'a')
 				output_file.write('Password Mutations:\n')
-				# for word in passwd_list:
-				# 	output_file.write(word + '\n')
 				output_file.write(passwd_table)
 				output_file.write('\n')
 			finally:
